@@ -65,8 +65,8 @@ services:
         aliases:
           - minio.db.svc.cluster.local
     ports:
-      # Storage console: keep it off the network, reach it via SSH tunnel if needed.
-      - 127.0.0.1:9001:9001
+      # Storage console on host 8041 (9001 is taken); localhost only, use an SSH tunnel if needed.
+      - 127.0.0.1:8041:9001
     environment:
       RUSTFS_ACCESS_KEY: ${COMMON_S3_KEY}
       RUSTFS_SECRET_KEY: ${COMMON_S3_SECRET}
