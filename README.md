@@ -82,7 +82,7 @@ For those who want to simply use OpenReplay as a service, [sign up](https://app.
 
 ## Community Support
 
-Please refer to the [official OpenReplay documentation](https://docs.openreplay.com/). That should help you troubleshoot common --issues. For additional help, you can reach out to us on one of these channels:
+Please refer to the [official OpenReplay documentation](https://docs.openreplay.com/). That should help you troubleshoot common -==-issues. For additional help, you can reach out to us on one of these channels:
 
 - [Slack](https://slack.openreplay.com) (Connect with our engineers and community)
 - [GitHub](https://github.com/openreplay/openreplay/issues) (Bug and issue reports)
