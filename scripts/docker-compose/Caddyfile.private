@@ -1,6 +1,12 @@
- {$CADDY_DOMAIN} {
-    reverse_proxy nginx-openreplay:80
-    tls {
-        issuer internal
+# Plain-HTTP mode: TLS is terminated by the host nginx in front of this stack
+# (openreplay.etherealcovenant.com -> <server>:8040). Trust its X-Forwarded-* headers
+# so OpenReplay still sees the original https scheme and client IP.
+{
+    servers {
+        trusted_proxies static private_ranges
     }
+}
+
+:80 {
+    reverse_proxy nginx-openreplay:80
 }

@@ -65,7 +65,8 @@ services:
         aliases:
           - minio.db.svc.cluster.local
     ports:
-      - 9001:9001
+      # Storage console: keep it off the network, reach it via SSH tunnel if needed.
+      - 127.0.0.1:9001:9001
     environment:
       RUSTFS_ACCESS_KEY: ${COMMON_S3_KEY}
       RUSTFS_SECRET_KEY: ${COMMON_S3_SECRET}
@@ -647,8 +648,8 @@ services:
     image: caddy:latest
     container_name: caddy
     ports:
-      - "80:80"
-      - "443:443"
+      # Host nginx terminates TLS and proxies here; 80/443 are already taken by it.
+      - "8040:80"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
